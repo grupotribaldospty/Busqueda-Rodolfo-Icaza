@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Property Tracker — Rodolfo Icaza (Uso interno)</title>
+<title>Selección de Propiedades — Grupo Tribaldos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
     --bay:#1b3a5c; --bay-deep:#0d1f33; --sand:#f2f4f7; --sand-card:#ffffff;
     --ink:#1a2430; --muted:#6b7686; --line:#dde2e9;
     --green:#2f7d4f; --green-bg:#e3f1e6; --amber:#9a6a16; --amber-bg:#fbf0d7;
-    --red:#a33636; --red-bg:#f7e1de; --slate:#3a5566; --slate-bg:#e2ebf0;
+    --slate:#3a5566; --slate-bg:#e2ebf0;
     --shadow:0 1px 2px rgba(13,31,51,.06),0 6px 24px rgba(13,31,51,.08);
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -32,50 +32,53 @@
   .stat .l{font-size:10.5px;opacity:.78;letter-spacing:.03em;margin-top:2px;white-space:nowrap}
   .note-box{background:#fbf4e4;border:1px solid #ecdcb5;border-radius:12px;padding:14px 16px;margin:18px auto 0;font-size:13px;color:#5a4a22;line-height:1.55}
   .note-box b{color:var(--amber)}
-  .controls{background:var(--sand-card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:16px;margin:16px auto 22px}
-  .controls-row{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
-  .controls-row + .controls-row{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
-  .field{display:flex;flex-direction:column;gap:4px;flex:1 1 150px;min-width:130px}
-  .field label{font-size:10.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
-  select,input[type=search]{font:inherit;font-size:13.5px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
-  select:focus,input:focus{outline:2px solid var(--bay);outline-offset:1px}
-  .clear{font:inherit;font-size:13px;background:none;border:none;color:var(--bay);cursor:pointer;padding:8px;text-decoration:underline;white-space:nowrap}
-  .zone-block{margin-top:8px}
-  .sec-head{display:flex;align-items:baseline;gap:12px;margin:30px 0 16px}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin:26px 0 16px}
   .sec-head h2{font-family:'Fraunces',serif;font-weight:500;font-size:22px}
   .sec-head .meta{font-size:13px;color:var(--muted);white-space:nowrap}
   .rule{height:1px;background:var(--line);flex:1}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;margin-bottom:30px}
   .card{background:var(--sand-card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .15s ease}
   .card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(18,40,38,.12)}
-  .thumb{height:110px;background:#dfe6e2 center/cover no-repeat;position:relative}
-  .verdict-tag{position:absolute;top:10px;left:10px;font-size:11.5px;font-weight:700;letter-spacing:.02em;padding:5px 12px;border-radius:99px;color:#fff}
-  .v-great{background:var(--green)} .v-solid{background:var(--bay)} .v-fair{background:var(--amber)} .v-stretch{background:var(--slate)}
+  .thumb{height:190px;background:#dfe6e2 center/cover no-repeat;position:relative;cursor:pointer}
+  .thumb:hover .photos-btn{background:rgba(13,31,51,.9)}
+  .source-tag{position:absolute;top:10px;right:10px;background:rgba(255,253,248,.92);border-radius:99px;padding:3px 10px;font-size:10.5px;font-weight:600;color:var(--muted)}
   .card-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:10px;flex:1}
-  .card h3{font-family:'Fraunces',serif;font-weight:500;font-size:18px;line-height:1.2}
+  .card h3{font-family:'Fraunces',serif;font-weight:500;font-size:18px;line-height:1.25}
   .area{font-size:13px;color:var(--muted)}
   .price{font-family:'Fraunces',serif;font-size:22px;font-weight:600;color:var(--bay-deep)}
   .ppm{font-size:11.5px;color:var(--muted);margin-left:6px}
   .facts{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;padding:8px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .facts b{font-weight:600}
   .desc{font-size:12.5px;color:var(--ink);line-height:1.55}
-  .desc.clamped{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-  .desc-toggle{font:inherit;font-size:12px;font-weight:600;background:none;border:none;color:var(--bay);cursor:pointer;padding:0;text-align:left}
-  .considerations{background:#fbf4e4;border:1px solid #ecdcb5;border-radius:9px;padding:9px 11px;font-size:12.5px;color:#5a4a22}
-  .considerations b{display:block;font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--amber);margin-bottom:4px}
-  .considerations ul{margin:0 0 0 16px}
-  .considerations li{margin:2px 0}
+  .amenities{background:var(--slate-bg);border:1px solid #c7d5dc;border-radius:9px;padding:9px 11px;font-size:12.5px;color:#233f4d}
+  .amenities b{display:block;font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--slate);margin-bottom:4px}
+  .amenities ul{margin:0 0 0 16px}
+  .amenities li{margin:2px 0}
   .maint{font-size:12px;color:var(--muted)}
   .card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:11px;border-top:1px solid var(--line)}
-  .ref-badge{font-size:12px;font-weight:600;color:var(--muted)!important;background:var(--sand);border:1px solid var(--line);border-radius:7px;padding:5px 10px;text-decoration:none!important}
+  .ref-badge{font-size:12px;font-weight:600;color:var(--muted);background:var(--sand);border:1px solid var(--line);border-radius:7px;padding:5px 10px}
   .updated{font-size:11.5px;color:var(--muted)}
   footer{text-align:center;color:var(--muted);font-size:12.5px;padding:34px 20px 16px;line-height:1.7}
   .brand-footer{max-width:640px;margin:26px auto 0;padding-top:22px;border-top:1px solid var(--line);text-align:center}
   .brand-name{font-family:'Fraunces',serif;font-size:17px;font-weight:600;color:var(--bay-deep);letter-spacing:.01em}
   .brand-tag{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.6;max-width:520px;margin-left:auto;margin-right:auto}
-  .brand-foot-small{font-size:11px;color:var(--muted);opacity:.75;margin-top:14px}
-  .empty{background:var(--sand-card);border:1px dashed var(--line);border-radius:14px;padding:38px 24px;text-align:center;color:var(--muted)}
-  @media(max-width:640px){.controls{padding:12px}}
+
+  .photos-btn{position:absolute;bottom:10px;left:10px;background:rgba(13,31,51,.72);color:#fff;border:none;border-radius:99px;padding:6px 12px;font-size:12px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:5px}
+  .photos-btn:hover{background:rgba(13,31,51,.9)}
+  .lightbox{position:fixed;inset:0;background:rgba(10,16,24,.92);z-index:999;display:flex;align-items:center;justify-content:center;padding:24px}
+  .lightbox[hidden]{display:none}
+  .lightbox-inner{max-width:min(920px,92vw);width:100%;display:flex;flex-direction:column;align-items:center;gap:12px}
+  .lightbox-imgwrap{position:relative;width:100%;display:flex;align-items:center;justify-content:center}
+  .lightbox img{max-width:100%;max-height:72vh;border-radius:10px;object-fit:contain;background:#0d1f33;box-shadow:0 12px 40px rgba(0,0,0,.5)}
+  .lightbox-nav{background:rgba(255,253,248,.14);border:1px solid rgba(255,253,248,.3);color:#fdfbf5;width:42px;height:42px;border-radius:99px;font-size:20px;cursor:pointer;flex-shrink:0}
+  .lightbox-nav:hover{background:rgba(255,253,248,.28)}
+  .lightbox-navrow{display:flex;align-items:center;gap:14px;width:100%;justify-content:center}
+  .lightbox-close{position:absolute;top:-6px;right:-6px;background:#fdfbf5;color:var(--bay-deep);border:none;width:34px;height:34px;border-radius:99px;font-size:18px;font-weight:700;cursor:pointer}
+  .lightbox-meta{color:#fdfbf5;font-size:13px;text-align:center;opacity:.85}
+  .lightbox-meta b{font-weight:700}
+  .lightbox-thumbs{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:100%}
+  .lightbox-thumbs img{width:52px;height:40px;object-fit:cover;border-radius:5px;opacity:.55;cursor:pointer;border:2px solid transparent}
+  .lightbox-thumbs img.active{opacity:1;border-color:#fdfbf5}
 </style>
 </head>
 <body>
@@ -86,7 +89,7 @@
       <svg viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grupo Tribaldos Realtors">
         <text x="130" y="108" font-family="Georgia,'Times New Roman',serif" font-size="42" font-weight="700" fill="#fdfbf5">Grupo</text>
         <text x="85" y="185" font-family="Arial,Helvetica,sans-serif" font-size="92" font-weight="800" letter-spacing="-1" fill="#fdfbf5">TRIBALDOS</text>
-        <text x="618" y="140" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#fdfbf5">®</text>
+        <text x="618" y="140" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#fdfbf5">\u00ae</text>
         <text x="428" y="232" font-family="Georgia,'Times New Roman',serif" font-size="46" font-weight="700" fill="#fdfbf5">Realtors</text>
         <path d="M348 15c-20 0-36 16-36 36 0 27 36 68 36 68s36-41 36-68c0-20-16-36-36-36z" fill="#c0392b"/>
         <circle cx="348" cy="51" r="19" fill="#6e2233"/>
@@ -94,8 +97,8 @@
     </div>
     <div class="header-inner">
       <div class="header-left">
-        <div class="eyebrow">Ciudad de Panamá · Cliente: Rodolfo Icaza · Asesor: Nicholas Wolf · USO INTERNO — no enviar al cliente</div>
-        <h1>Property Tracker</h1>
+        <div class="eyebrow">Ciudad de Panamá · Selección de opciones</div>
+        <h1>Propiedades Seleccionadas</h1>
       </div>
       <div class="stats" id="stats"></div>
     </div>
@@ -104,943 +107,239 @@
 
 <div class="wrap">
   <div class="note-box">
-    <b>Nota:</b> dos categorías de búsqueda para apartamentos de 1 recámara en Ciudad de Panamá, en zonas céntricas (se excluyeron zonas retiradas como Vía Tocumen, Las Cumbres, Pedregal, Don Bosco y Juan Díaz-Ciudad Radial). <b>Alquiler:</b> hasta $650/mes, semiamoblado o amoblado — 16 opciones. <b>Compra:</b> por debajo de $100,000 — 16 opciones. Todos los anuncios fueron verificados como activos y publicados en el portal el 02/10/2026; algunas opciones marcadas "Fair" se incluyen solo como referencia (precio en el límite del presupuesto, metraje no confirmado, o unidad de uso mixto) — revisar el bloque "A tener en cuenta" de cada tarjeta.
+    <b>Nota:</b> selección de 10 apartamentos de 1 y 2 recámaras en distintas zonas de la ciudad (Betania/El Dorado, Parque Lefevre, Río Abajo/Vía España, El Cangrejo, Vía Transístmica, Carrasquilla y Tumba Muerto), entre $85,000 y $115,000. Haz clic en cualquier foto para ver la galería completa de cada propiedad sin salir de esta página.
   </div>
 
-  <div class="controls">
-    <div class="controls-row">
-      <div class="field"><label>Buscar</label>
-        <input type="search" id="f-search" placeholder="Apartamento, zona...">
-      </div>
-      <div class="field"><label>Categoría</label>
-        <select id="f-area"><option value="">Todas</option></select>
-      </div>
-      <div class="field"><label>Veredicto</label>
-        <select id="f-verdict">
-          <option value="">Cualquiera</option>
-          <option value="Great Find">Great Find</option>
-          <option value="Solid Option">Solid Option</option>
-          <option value="Fair">Fair</option>
-        </select>
-      </div>
-      <div class="field"><label>Ordenar por</label>
-        <select id="f-sort">
-          <option value="price-asc">Precio (menor a mayor)</option>
-          <option value="price-desc">Precio (mayor a menor)</option>
-        </select>
-      </div>
-      <button class="clear" id="clear">Limpiar filtros</button>
-    </div>
-  </div>
-
-  <div id="zones">
-    <div class="zone-block" data-zone="Alquiler">
-      <div class="sec-head"><h2>Alquiler — hasta $650/mes</h2><span class="meta">16 propiedades</span><div class="rule"></div></div>
-      <div class="grid">
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-solid">Solid Option</span>
-      <span style="opacity:.85">Betania, El Ingenio</span>
-    </div>
-    <div class="card-body">
-      <h3>Alquiler de Apartamento en Betania</h3>
-      <div class="area">Betania, El Ingenio · <a href="https://www.google.com/maps/search/Betania,+El+Ingenio+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$500<span class="ppm">/mes</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>60 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Aparta-estudio con sala-comedor-cocina y un baño, lavandería interna, un estacionamiento y entrada independiente. Máximo 3 personas, sin mascotas.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>60 m² — $8.3/m² mensual</li><li>Sin información de amenidades del edificio (más allá de entrada independiente)</li><li>Máximo 3 personas, no se permiten mascotas</li></ul></div>
-      <div class="maint">Estado: Sin amoblar</div>
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-alquiler-apartamentos/alquiler-de-apartamento-en-betania-ciudad-de-panama/31700313" target="_blank" rel="noopener">Ref: betania-ingenio</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-fair">Fair</span>
-      <span style="opacity:.85">Santa Ana · Casco Antiguo</span>
-    </div>
-    <div class="card-body">
-      <h3>Apartamento en Casco Antiguo (Santa Ana)</h3>
-      <div class="area">Santa Ana · Casco Antiguo · <a href="https://www.google.com/maps/search/Santa+Ana+·+Casco+Antiguo+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$450<span class="ppm">/mes</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>Consultar</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Ubicado en Santa Ana, Calle 13. Apartamento vacío con aires acondicionados, sin parking, sin área social. 1 recámara, 1 baño.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Sin estacionamiento ni área social</li><li>Precio incluye $1 de mantenimiento adicional</li><li>Zona histórica muy céntrica, buena conexión peatonal</li></ul></div>
-      <div class="maint">Estado: Sin amoblar</div>
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-alquiler-apartamentos/alquiler-de-apartamento-en-casco-antiguo/32733084" target="_blank" rel="noopener">Ref: santa-ana-casco</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-great">Great Find</span>
-      <span style="opacity:.85">Betania · Tumba Muerto</span>
-    </div>
-    <div class="card-body">
-      <h3>PH Urbis Tower</h3>
-      <div class="area">Betania · Tumba Muerto · <a href="https://www.google.com/maps/search/Betania+·+Tumba+Muerto+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$650<span class="ppm">/mes</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>54.55 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Apartamento de 54.55 m² con walk-in closet, sala-comedor, cocina abierta, lavandería y 1 estacionamiento privado + visitas. Área social completa: piscina, gazebo BBQ, salón de eventos, terraza techada, lobby elegante, garita de seguridad, cámaras y acceso con dispositivo.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Justo en el tope del presupuesto ($650)</li><li>Uno de los paquetes de amenidades más completos del grupo de alquiler</li><li>1 estacionamiento privado + parqueo de visitas</li></ul></div>
-      <div class="maint">Estado: Sin amoblar</div>
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-alquiler-apartamentos/ph-urbis-tower-apartamento-en-alquiler-tumba-muerto/33063160" target="_blank" rel="noopener">Ref: urbis-tower-tumba-muerto</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-solid">Solid Option</span>
-      <span style="opacity:.85">Río Abajo</span>
-    </div>
-    <div class="card-body">
-      <h3>Apto en Edificio Montserrat y Trinidad</h3>
-      <div class="area">Río Abajo · <a href="https://www.google.com/maps/search/Río+Abajo+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$300<span class="ppm">/mes</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>35 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Entrando por la Feria Antillana, muy cerca de Vía España con Río Abajo, con paradas de bus y comercios cercanos. Sala-comedor con desayunador, cocina, balcón, área para lavandería.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Depósito $330 con descuento de pronto pago a $300</li><li>Contrato mínimo de 1 año + 1 mes de depósito de garantía</li><li>Muy cerca de Vía España — buena conectividad</li></ul></div>
-      <div class="maint">Estado: Sin amoblar</div>
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-alquiler-apartamentos/se-alquila-apto-en-rio-abajo-edificio-en-montserrat-y-trinidad/32550364" target="_blank" rel="noopener">Ref: rio-abajo-montserrat</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-great">Great Find</span>
-      <span style="opacity:.85">Santa Ana</span>
-    </div>
-    <div class="card-body">
-      <h3>Edificio Los Nicholson</h3>
-      <div class="area">Santa Ana · <a href="https://www.google.com/maps/search/Santa+Ana+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$300<span class="ppm">/mes</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>45 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Céntrico apartamento en planta baja de 1 recámara, 1 baño, sala, cocina, mini depósito y área de lavandería. Zona céntrica y de fácil acceso, cerca de comercios, transporte público y supermercados.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>El precio más bajo del grupo de alquiler para una ubicación céntrica</li><li>Planta baja — confirmar seguridad de acceso</li><li>Incluye mini depósito propio</li></ul></div>
-      <div class="maint">Estado: Sin amoblar</div>
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-alquiler-apartamentos/santa-ana-edificio-los-nicholson/33002068" target="_blank" rel="noopener">Ref: santa-ana-nicholson</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-solid">Solid Option</span>
-      <span style="opacity:.85">Parque Lefevre</span>
-    </div>
-    <div class="card-body">
-      <h3>PH Henry</h3>
-      <div class="area">Parque Lefevre · <a href="https://www.google.com/maps/search/Parque+Lefevre+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$500<span class="ppm">/mes</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>65 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Apartamento de 65 m² con 1 recámara, 1 baño, 1 estacionamiento vacío y balcón. Requiere ficha de CSS obligatoria.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Requiere ficha de CSS para aplicar</li><li>Incluye estacionamiento</li><li>65 m², uno de los más amplios del grupo de alquiler</li></ul></div>
-      <div class="maint">Estado: Sin amoblar</div>
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-alquiler-apartamentos/alquiler-apartamento-en-parque-lefevre/33013506" target="_blank" rel="noopener">Ref: parque-lefevre-henry</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-great">Great Find</span>
-      <span style="opacity:.85">Pueblo Nuevo · 12 de Octubre</span>
-    </div>
-    <div class="card-body">
-      <h3>Apartamento Amoblado en Hato Pintado</h3>
-      <div class="area">Pueblo Nuevo · 12 de Octubre · <a href="https://www.google.com/maps/search/Pueblo+Nuevo+·+12+de+Octubre+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$600<span class="ppm">/mes</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>100 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Apartamento amplio amoblado de 100 m², 1 habitación y 1 baño, cocina completamente equipada (estufa, refrigeradora, microondas), aire acondicionado, lavadora y secadora. El precio incluye TODOS los gastos: internet, TV cable, agua, gas y luz. Zona céntrica y segura cerca del metro de 12 de Octubre, supermercado El Rey, hospital San Fernando y gimnasios.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Amoblado y con todos los servicios incluidos en el precio — ideal si busca mudarse sin trámites</li><li>100 m², el más grande del grupo de alquiler</li><li>Planta baja, 1 estacionamiento</li></ul></div>
-      <div class="maint">Estado: Amoblado</div>
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-alquiler-apartamentos/apartamento-grande-centrico-seguro-y-amoblado-llamar/12830508" target="_blank" rel="noopener">Ref: pueblo-nuevo-amoblado</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-solid">Solid Option</span>
-      <span style="opacity:.85">Tumba Muerto</span>
-    </div>
-    <div class="card-body">
-      <h3>Dúplex Los Ángeles</h3>
-      <div class="area">Tumba Muerto · <a href="https://www.google.com/maps/search/Tumba+Muerto+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$425<span class="ppm">/mes</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>58 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Dúplex con anexo totalmente independiente: 1 recámara, sala, comedor, baño, lavandería, cocina y balcón.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Entrada independiente tipo anexo</li><li>58 m² con balcón</li><li>Buena relación precio/tamaño</li></ul></div>
-      <div class="maint">Estado: Sin amoblar</div>
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-alquiler-apartamentos/aprt-los-angeles-a-200-ave-tumba-muerto/32984988" target="_blank" rel="noopener">Ref: tumba-muerto-angeles</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-great">Great Find</span>
-      <span style="opacity:.85">Calidonia</span>
-    </div>
-    <div class="card-body">
-      <h3>Edificio Don Goyo</h3>
-      <div class="area">Calidonia · <a href="https://www.google.com/maps/search/Calidonia+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$450<span class="ppm">/mes</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>55 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Céntrico apartamento de 1 recámara, 1 baño, sala-comedor, cocina, área de lavandería y balcón. Ubicación céntrica y estratégica con fácil acceso a comercios, supermercados, farmacias, bancos, transporte público y la estación del tren.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Zona muy céntrica con acceso a estación del tren</li><li>55 m² con balcón</li><li>Buen equilibrio precio/ubicación</li></ul></div>
-      <div class="maint">Estado: Sin amoblar</div>
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-alquiler-apartamentos/calidonia-edificio-don-goyo/32996892" target="_blank" rel="noopener">Ref: calidonia-don-goyo</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-fair">Fair</span>
-      <span style="opacity:.85">San Francisco · Carrasquilla</span>
-    </div>
-    <div class="card-body">
-      <h3>Apartamento Vía España, Carrasquilla</h3>
-      <div class="area">San Francisco · Carrasquilla · <a href="https://www.google.com/maps/search/San+Francisco+·+Carrasquilla+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$600<span class="ppm">/mes</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>40 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Apartamento vía España, cerca del IPA. Edificio pequeño sin área social y sin elevador. Cocina equipada con línea blanca. Sin parking. Depósito $700.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Sin área social y sin elevador</li><li>Sin estacionamiento</li><li>Ubicación prime cerca de Vía España</li></ul></div>
-      <div class="maint">Estado: Sin amoblar</div>
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-alquiler-apartamentos/alquiler-de-apartamento-via-espana-carrasquilla/33042145" target="_blank" rel="noopener">Ref: carrasquilla-via-espana</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-great">Great Find</span>
-      <span style="opacity:.85">Bella Vista · El Cangrejo</span>
-    </div>
-    <div class="card-body">
-      <h3>Apartamento en Vía Veneto</h3>
-      <div class="area">Bella Vista · El Cangrejo · <a href="https://www.google.com/maps/search/Bella+Vista+·+El+Cangrejo+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$550<span class="ppm">/mes</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>70 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Apartamento de 70 m² cerca de la estación del metro Iglesia del Carmen, paradas de bus y la Universidad de Panamá. Recámara con closet y A/C, baño completo, balcón, cocina, lavandería. Edificio con ascensor, piso 4. Se aceptan mascotas.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Sin estacionamiento — ideal para quien no tiene auto</li><li>Acepta mascotas</li><li>70 m², zona prime de El Cangrejo</li></ul></div>
-      <div class="maint">Estado: Sin amoblar</div>
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-alquiler-apartamentos/se-alquila-apartamento-en-via-veneto-600-dolares/31021959" target="_blank" rel="noopener">Ref: el-cangrejo-via-veneto</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-great">Great Find</span>
-      <span style="opacity:.85">Bella Vista · Marbella</span>
-    </div>
-    <div class="card-body">
-      <h3>Apartamento en Marbella</h3>
-      <div class="area">Bella Vista · Marbella · <a href="https://www.google.com/maps/search/Bella+Vista+·+Marbella+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$650<span class="ppm">/mes</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>100 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Apartamento de 1 recámara, 1 baño, sala y comedor, con balcón, en un edificio de 100 metros en plena Marbella.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Justo en el tope del presupuesto ($650)</li><li>Una de las ubicaciones más prime del grupo (Marbella)</li><li>100 m² — tamaño generoso para el presupuesto</li></ul></div>
-      <div class="maint">Estado: Sin amoblar</div>
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-alquiler-apartamentos/alquilo-apartamento-de-1-recamara-y-1-bano-650-mensual/31832949" target="_blank" rel="noopener">Ref: marbella-1rec</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-solid">Solid Option</span>
-      <span style="opacity:.85">San Francisco · Carrasquilla</span>
-    </div>
-    <div class="card-body">
-      <h3>Aparta-estudio en Carrasquilla</h3>
-      <div class="area">San Francisco · Carrasquilla · <a href="https://www.google.com/maps/search/San+Francisco+·+Carrasquilla+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$500<span class="ppm">/mes</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>40 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Detrás del Parque Omar. Un solo ambiente, 1 baño, cocina, lavandería, 5to piso con conserje y seguridad. Incluye nevera y estufa, agua y aseo.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Incluye línea blanca básica (nevera y estufa)</li><li>Conserjería y seguridad en el edificio</li><li>Estacionamiento en la calle o privado al frente</li></ul></div>
-      <div class="maint">Estado: Sin amoblar (línea blanca básica incluida)</div>
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-alquiler-apartamentos/alquiler-apartaestudio-en-carrasquilla/33013457" target="_blank" rel="noopener">Ref: carrasquilla-estudio</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-solid">Solid Option</span>
-      <span style="opacity:.85">Zona céntrica (cerca hospitales y colegios)</span>
-    </div>
-    <div class="card-body">
-      <h3>Apartamento Semiamueblado</h3>
-      <div class="area">Zona céntrica (cerca hospitales y colegios) · <a href="https://www.google.com/maps/search/Zona+céntrica+(cerca+hospitales+y+colegios)+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$450<span class="ppm">/mes</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>86 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Área céntrica cerca de hospitales, escuela e iglesia. Semiamoblado: incluye aire acondicionado, cama, centro de lavado y estufa.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Semiamoblado — cumple exactamente lo pedido por el cliente</li><li>86 m², uno de los más grandes del grupo</li><li>Zona exacta no especificada en el anuncio, confirmar antes de agendar visita</li></ul></div>
-      <div class="maint">Estado: Semiamoblado</div>
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-alquiler-apartamentos/apartamento-semiamueblado/32994899" target="_blank" rel="noopener">Ref: semiamueblado-centrico</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-fair">Fair</span>
-      <span style="opacity:.85">Parque Lefevre</span>
-    </div>
-    <div class="card-body">
-      <h3>Apartamento entrada Costa del Este</h3>
-      <div class="area">Parque Lefevre · <a href="https://www.google.com/maps/search/Parque+Lefevre+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$345<span class="ppm">/mes</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>25 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Apartamento totalmente independiente en planta baja (anexo de una residencia), justo antes de la entrada de Costa del Este. Sala/cocina, 1 recámara, 1 baño, lavandería.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Sin estacionamiento para auto, solo espacio para moto</li><li>No se permiten mascotas</li><li>1 mes de depósito solicitado</li></ul></div>
-      <div class="maint">Estado: Sin amoblar</div>
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-alquiler-apartamentos/apartamento-entrada-costa-del-este/33017775" target="_blank" rel="noopener">Ref: parque-lefevre-costa-este</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-great">Great Find</span>
-      <span style="opacity:.85">Calidonia</span>
-    </div>
-    <div class="card-body">
-      <h3>Edificio Digna</h3>
-      <div class="area">Calidonia · <a href="https://www.google.com/maps/search/Calidonia+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$410<span class="ppm">/mes</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>45 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Zona céntrica con todas las comodidades alrededor: estaciones de metro, paradas de bus, supermercados, bancos y comercios. Apartamento #7: 1 recámara, 1 baño, sala-comedor, cocina, balcón.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Depósito $410 con descuento de pronto pago a $380</li><li>Contrato mínimo 1 año + 1 mes de depósito de garantía</li><li>Muy cerca de estación de metro</li></ul></div>
-      <div class="maint">Estado: Sin amoblar</div>
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-alquiler-apartamentos/se-alquila-apto-en-calidonia-edificio-digna/32667626" target="_blank" rel="noopener">Ref: calidonia-digna</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div></div>
-    </div>
-    <div class="zone-block" data-zone="Compra">
-      <div class="sec-head"><h2>Compra — por debajo de $100,000</h2><span class="meta">16 propiedades</span><div class="rule"></div></div>
-      <div class="grid">
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-great">Great Find</span>
-      <span style="opacity:.85">Calidonia</span>
-    </div>
-    <div class="card-body">
-      <h3>Edificio La Esmeralda</h3>
-      <div class="area">Calidonia · <a href="https://www.google.com/maps/search/Calidonia+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$30,000<span class="ppm">$545/m²</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>55 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Céntrico apartamento de 1 recámara con división adicional para una segunda recámara, 1 baño, sala-comedor, cocina y área de lavandería. Ubicación estratégica cerca de estaciones de metro, transporte público, supermercados, farmacias y entidades gubernamentales.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>El precio más bajo de todo el grupo de compra</li><li>Incluye división ya armada para una 2da recámara, si se necesita en el futuro</li><li>55 m², buena relación precio/m²</li></ul></div>
-      
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/calidonia-edificio-la-esmeralda/32491147" target="_blank" rel="noopener">Ref: calidonia-esmeralda</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-great">Great Find</span>
-      <span style="opacity:.85">Parque Lefevre</span>
-    </div>
-    <div class="card-body">
-      <h3>Apartamento esquina Parque Lefevre, Calle D</h3>
-      <div class="area">Parque Lefevre · <a href="https://www.google.com/maps/search/Parque+Lefevre+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$54,500<span class="ppm">$1,048/m²</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>52 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Apartamento bien céntrico en tercer piso (sin elevador), de 1 recámara con opción de convertir en 2, baño y cocina propios. Precio negociable.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Tercer piso sin elevador</li><li>Precio negociable según el anuncio</li><li>Opción de ampliar a 2 recámaras en el futuro</li></ul></div>
-      
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/apartamento-en-esquina-parque-lefebre-calle-d/32860442" target="_blank" rel="noopener">Ref: parque-lefevre-calle-d</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-great">Great Find</span>
-      <span style="opacity:.85">San Francisco · Carrasquilla</span>
-    </div>
-    <div class="card-body">
-      <h3>Edificio Analisa</h3>
-      <div class="area">San Francisco · Carrasquilla · <a href="https://www.google.com/maps/search/San+Francisco+·+Carrasquilla+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$60,000<span class="ppm">$1,463/m²</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>41 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Céntrico apartamento de 1 recámara, 1 baño, sala-comedor, cocina con área de lavandería y 1 estacionamiento con portón eléctrico. Zona de alta demanda residencial, a pocos minutos de vías principales, supermercados y farmacias.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Incluye estacionamiento con portón eléctrico</li><li>Zona de alta demanda — buena opción de inversión</li><li>41 m², compacto y eficiente</li></ul></div>
-      
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/carrasquilla-edificio-analisa/32684489" target="_blank" rel="noopener">Ref: carrasquilla-analisa</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-great">Great Find</span>
-      <span style="opacity:.85">Bella Vista · Vía Brasil</span>
-    </div>
-    <div class="card-body">
-      <h3>Edificio Brasil 34</h3>
-      <div class="area">Bella Vista · Vía Brasil · <a href="https://www.google.com/maps/search/Bella+Vista+·+Vía+Brasil+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$70,000<span class="ppm">$1,346/m²</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>52 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Céntrico apartamento de 1 recámara, 1 baño, sala-comedor, cocina, área de lavandería y balcón. Una de las zonas más céntricas y convenientes de la ciudad, con fácil acceso a Vía España, Calle 50 y Obarrio.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Ubicación prime sobre Vía Brasil</li><li>Incluye balcón</li><li>Cerca de Calle 50 y Obarrio</li></ul></div>
-      
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/via-brasil-edificio-brasil-34/32678706" target="_blank" rel="noopener">Ref: via-brasil-34</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-solid">Solid Option</span>
-      <span style="opacity:.85">San Francisco · Carrasquilla</span>
-    </div>
-    <div class="card-body">
-      <h3>PH Green Point</h3>
-      <div class="area">San Francisco · Carrasquilla · <a href="https://www.google.com/maps/search/San+Francisco+·+Carrasquilla+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$91,250<span class="ppm">$1,753/m²</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>52.05 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Venta directa de banco. Acogedor apartamento de 1 recámara, 1 baño, sala y comedor, cocina funcional con buena iluminación natural, 1 estacionamiento. Zona céntrica cerca de Vía España, transporte público y estaciones del Metro.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Venta bancaria — proceso de compra puede tener pasos adicionales</li><li>Incluye estacionamiento</li><li>Cerca de Vía España y Metro</li></ul></div>
-      
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/banco-vende-apartamento-en-ph-green-point-carrasquilla/32123237" target="_blank" rel="noopener">Ref: green-point-carrasquilla</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-fair">Fair</span>
-      <span style="opacity:.85">Zona céntrica (cerca de corredor sur y metro)</span>
-    </div>
-    <div class="card-body">
-      <h3>Apartamento con Interés Preferencial</h3>
-      <div class="area">Zona céntrica (cerca de corredor sur y metro) · <a href="https://www.google.com/maps/search/Zona+céntrica+(cerca+de+corredor+sur+y+metro)+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$78,000<span class="ppm">$1,444/m²</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>54 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Apartamento de 54 m², 1 recámara con opción a 2, 1 baño, sala, comedor, cocina con espacio para estufa empotrada, lavandería, 1 estacionamiento. Edificio sin elevador. Se reserva con $500 y regalan el 2% del abono inicial. Cerca del corredor sur, metro, supermercado y farmacias.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Edificio sin elevador</li><li>Incentivo de reserva con $500 y 2% de abono inicial de regalo</li><li>Opción de ampliar a 2 recámaras</li></ul></div>
-      
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/vendo-lindo-apto-con-interes-preferencial/32994291" target="_blank" rel="noopener">Ref: interes-preferencial</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-great">Great Find</span>
-      <span style="opacity:.85">Río Abajo</span>
-    </div>
-    <div class="card-body">
-      <h3>Apartamento en Av. La Pulida</h3>
-      <div class="area">Río Abajo · <a href="https://www.google.com/maps/search/Río+Abajo+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$46,000</div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>Consultar</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Apartamento de 1 recámara, 1 baño, céntrico, en la Avenida La Pulida, Río Abajo.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Uno de los precios más bajos del grupo de compra</li><li>Zona consolidada y céntrica</li><li>Confirmar metraje exacto directamente con el agente</li></ul></div>
-      
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/aprovecha-apto-en-av-la-pulida-1recamara-1bano-centrico/33060072" target="_blank" rel="noopener">Ref: rio-abajo-pulida</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-solid">Solid Option</span>
-      <span style="opacity:.85">Betania · Dos Mares</span>
-    </div>
-    <div class="card-body">
-      <h3>PH Green Hills, Dos Mares</h3>
-      <div class="area">Betania · Dos Mares · <a href="https://www.google.com/maps/search/Betania+·+Dos+Mares+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$77,900</div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>Consultar</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Apartamento de 1 recámara en el proyecto Dos Mares, PH Green Hills, Betania.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Zona de Betania con buena conectividad</li><li>Confirmar metraje y amenidades directamente con el agente</li><li>Precio medio dentro del grupo de compra</li></ul></div>
-      
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/apartamento-de-1-recamara-en-dos-mares-ph-green-hills-77-900/32724181" target="_blank" rel="noopener">Ref: dos-mares-green-hills</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-fair">Fair</span>
-      <span style="opacity:.85">Betania · Tumba Muerto</span>
-    </div>
-    <div class="card-body">
-      <h3>PH Urbis Tower (Tumba Muerto)</h3>
-      <div class="area">Betania · Tumba Muerto · <a href="https://www.google.com/maps/search/Betania+·+Tumba+Muerto+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$98,000<span class="ppm">$1,690/m²</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>58 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Apartamento de 58 m², 1 habitación, 1 baño, sala-comedor, área de lavandería, 1 estacionamiento. Área social con piscina. Cerca de parada de autobús y farmacias, seguridad 24 horas.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Precio cercano al tope del presupuesto ($100,000)</li><li>Incluye piscina y seguridad 24 horas</li><li>Mismo edificio (PH Urbis Tower) donde también hay una opción en alquiler — confirmar si es la misma unidad o unidades distintas</li></ul></div>
-      
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/tumba-muerto-ph-urbis-1-habitacion-58m2-piscina/30778202" target="_blank" rel="noopener">Ref: urbis-tower-venta-98k</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-solid">Solid Option</span>
-      <span style="opacity:.85">Río Abajo</span>
-    </div>
-    <div class="card-body">
-      <h3>Apartamento en Río Abajo</h3>
-      <div class="area">Río Abajo · <a href="https://www.google.com/maps/search/Río+Abajo+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$90,000<span class="ppm">$2,250/m²</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>40 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Apartamento de 1 recámara, 1 baño en Río Abajo, zona residencial consolidada y céntrica.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>40 m², compacto</li><li>Río Abajo tiene buena conectividad con Vía España</li><li>Confirmar amenidades directamente con el agente</li></ul></div>
-      
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/vendo-apartamento-en-rio-abajo/32149831" target="_blank" rel="noopener">Ref: rio-abajo-venta</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-fair">Fair</span>
-      <span style="opacity:.85">Bella Vista · Vía España</span>
-    </div>
-    <div class="card-body">
-      <h3>Apartamento en Vía España</h3>
-      <div class="area">Bella Vista · Vía España · <a href="https://www.google.com/maps/search/Bella+Vista+·+Vía+España+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$99,000<span class="ppm">$1,375/m²</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>72 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Apartamento de 72 m², 1 recámara, 1 baño, en pleno corredor de Vía España.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Precio cercano al tope del presupuesto ($100,000)</li><li>72 m², uno de los más grandes del grupo de compra</li><li>Ubicación prime sobre Vía España</li></ul></div>
-      
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/venta-de-apartamento-en-via-espana/32721108" target="_blank" rel="noopener">Ref: bella-vista-via-espana-venta</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-fair">Fair</span>
-      <span style="opacity:.85">Bella Vista</span>
-    </div>
-    <div class="card-body">
-      <h3>PH Botánico</h3>
-      <div class="area">Bella Vista · <a href="https://www.google.com/maps/search/Bella+Vista+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$88,000<span class="ppm">$3,667/m²</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>24 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Apartamento tipo estudio de 24 m² en PH Botánico, Bella Vista. El anuncio indica disponibilidad tanto en venta como en alquiler.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>24 m² — el más compacto del grupo de compra, confirmar que es 1 recámara real y no aparta-estudio</li><li>El anuncio ofrece venta y alquiler, aclarar con el agente cuál aplica</li><li>Ubicación céntrica en Bella Vista</li></ul></div>
-      
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/venta-alquiler-ph-botanico-bella-vista/33018405" target="_blank" rel="noopener">Ref: bella-vista-botanico</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-fair">Fair</span>
-      <span style="opacity:.85">Betania · Villa de las Fuentes</span>
-    </div>
-    <div class="card-body">
-      <h3>PH Las Terrazas, Villa de las Fuentes</h3>
-      <div class="area">Betania · Villa de las Fuentes · <a href="https://www.google.com/maps/search/Betania+·+Villa+de+las+Fuentes+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$100,000<span class="ppm">$1,538/m²</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>65 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Apartamento de 65 m², 1 recámara, 1 baño en PH Las Terrazas, Villa de las Fuentes, Betania.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Justo en el tope máximo del presupuesto ($100,000) — confirmar si hay margen de negociación</li><li>65 m²</li><li>Betania tiene buena conectividad con Tumba Muerto y Vía Ricardo J. Alfaro</li></ul></div>
-      
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/apartamento-en-venta-ph-las-terrazas-villa-de-las-fuentes-1-recamarayy/33025827" target="_blank" rel="noopener">Ref: villa-fuentes-terrazas</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-solid">Solid Option</span>
-      <span style="opacity:.85">Ancón</span>
-    </div>
-    <div class="card-body">
-      <h3>Altamira Gardens (Centenario)</h3>
-      <div class="area">Ancón · <a href="https://www.google.com/maps/search/Ancón+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$90,000<span class="ppm">$1,200/m²</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>75 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Apartamento de 75 m², 1 habitación, 1 baño, sala, cocina, en el proyecto Centenario Altamira Gardens, Ancón. Precio negociable.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>75 m², uno de los más grandes del grupo de compra</li><li>Precio marcado como negociable</li><li>Ancón es una zona verde y tranquila, cerca del casco urbano</li></ul></div>
-      
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/vendo-apartamento-centanario-altamira-gardens/32985688" target="_blank" rel="noopener">Ref: ancon-altamira</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-fair">Fair</span>
-      <span style="opacity:.85">Bella Vista · Calle 50</span>
-    </div>
-    <div class="card-body">
-      <h3>PH Amazonas</h3>
-      <div class="area">Bella Vista · Calle 50 · <a href="https://www.google.com/maps/search/Bella+Vista+·+Calle+50+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$95,000</div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>Consultar</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Apartamento de 1 recámara, 1 baño, 1 estacionamiento en PH Amazonas, Bella Vista. Amenidades del edificio: piscina, gimnasio, sala de cine, coworking/wifi, cuarto de interacción y sauna.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Precio cercano al tope del presupuesto ($100,000)</li><li>Buen paquete de amenidades (piscina, gimnasio, sauna, coworking)</li><li>Incluye 1 estacionamiento</li></ul></div>
-      
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/venta-de-apartamento-en-ph-amazonas-en-bella-vista/31960157" target="_blank" rel="noopener">Ref: ph-amazonas-bv</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="thumb" style="background:linear-gradient(135deg,#20477a 0%,#0d1f33 100%);display:flex;align-items:center;justify-content:center;color:#fdfbf5;font-family:'Fraunces',serif;font-size:15px;text-align:center;padding:10px">
-      <span class="verdict-tag v-fair">Fair</span>
-      <span style="opacity:.85">Bella Vista · Avenida Balboa</span>
-    </div>
-    <div class="card-body">
-      <h3>PH Bay View, Avenida Balboa</h3>
-      <div class="area">Bella Vista · Avenida Balboa · <a href="https://www.google.com/maps/search/Bella+Vista+·+Avenida+Balboa+Panama" target="_blank" rel="noopener">ver mapa</a></div>
-      <div class="price">$85,000<span class="ppm">$1,757/m²</span></div>
-      <div class="facts">
-        <span><b>1</b> hab</span>
-        <span><b>1</b> baño</span>
-        <span><b>48.38 m²</b></span>
-      </div>
-      <div>
-        <p class="desc clamped">Unidad de remate en PH Bay View, sobre la Avenida Balboa. 48.38 m², puede usarse como apartamento tipo estudio, oficina o local comercial (la torre está certificada para todos los usos). Amenidades: piscina, área social completa, gimnasio, lobby amplio, parque infantil, canchas y seguridad 24 horas.</p>
-        <button class="desc-toggle" onclick="toggleDesc(this)">Ver más ›</button>
-      </div>
-      <div class="considerations"><b>A tener en cuenta</b><ul><li>Unidad de uso mixto (apartamento/oficina/local) — confirmar con el agente si aplica como vivienda habitual</li><li>Ubicación muy céntrica sobre Avenida Balboa</li><li>Buen paquete de amenidades (piscina, gimnasio, canchas)</li></ul></div>
-      
-      <div class="card-foot">
-        <a class="ref-badge" href="https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/se-vende-inmueble-para-inversion-en-avenida-balboa-cg/33047746" target="_blank" rel="noopener">Ref: bay-view-balboa</a>
-        <span class="updated">verificado 02/10/2026</span>
-      </div>
-    </div>
-  </div></div>
-    </div>
-  </div>
-  <div class="empty" id="empty" hidden><b>Sin resultados</b>Prueba ajustando los filtros.</div>
+  <div class="sec-head"><h2>Opciones</h2><span class="meta" id="count-meta"></span><div class="rule"></div></div>
+  <div class="grid" id="grid"></div>
 </div>
 
 <footer>
-  Datos tomados de listados públicos activos en encuentra24.com, verificados el 02/10/2026 · Los precios y disponibilidad pueden cambiar — verifica siempre en el link original antes de contactar.
+  Datos tomados de listados públicos activos en los portales inmobiliarios, verificados el 02/10/2026 · Los precios y disponibilidad pueden cambiar.
 
   <div class="brand-footer">
     <div class="brand-name">Grupo Tribaldos</div>
-    <div class="brand-tag">Este tracker es un sistema de filtrado sobre todo el inventario disponible en el mercado: revisamos, verificamos y comparamos las opciones activas para que el cliente pueda enfocarse solo en las que realmente valen la pena, en vez de buscar anuncio por anuncio.</div>
-    <div class="brand-foot-small">Preparado para Rodolfo Icaza · Asesor Nicholas Wolf</div>
+    <div class="brand-tag">Selección curada de opciones dentro del rango solicitado, con fotos completas de cada propiedad disponibles directamente en esta página.</div>
   </div>
 </footer>
 
 <script>
-function toggleDesc(btn){
-  const desc = btn.previousElementSibling;
-  const clamped = desc.classList.toggle("clamped");
-  btn.textContent = clamped ? "Ver más ›" : "Ver menos";
+const PROPERTIES = [
+  {
+    id:"el-dorado-aventura",
+    building:"Apartamento en El Dorado",
+    area:"Betania / El Dorado",
+    price:95000, beds:1, baths:1, parking:1, size_m2:67,
+    maintenance:150,
+    description:"Apartamento amueblado de 1 recámara en El Dorado, piso 5, con amplio paquete de amenidades: piscina, salón de eventos, conserjería, planta eléctrica y seguridad 24 horas. Buena opción de entrada dentro del presupuesto.",
+    facts:["Amueblado","Piso 5","Seguridad 24h","Piscina y salón de eventos"],
+    photos:["https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/98/18/46/32981846_540fbfd","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/98/18/46/32981846_b372d68","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/98/18/46/32981846_6d1f30a","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/98/18/46/32981846_87bd5a1","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/98/18/46/32981846_2d80dba","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/98/18/46/32981846_41aced0","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/98/18/46/32981846_ae11d1a","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/98/18/46/32981846_829f3ee","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/98/18/46/32981846_6fc744f","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/98/18/46/32981846_6d6e23b"],
+    listingUrl:"https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/venta-de-apartamento-en-el-dorado/32981846",
+    lastVerified:"2026-10-02"
+  },
+  {
+    id:"parque-lefevre-rm",
+    building:"Apartamento en Parque Lefevre (detrás de Waikiki)",
+    area:"Parque Lefevre",
+    price:85000, beds:2, baths:1, parking:1, size_m2:64,
+    maintenance:30,
+    description:"Apartamento de 2 recámaras en Parque Lefevre, piso 2 de 5 niveles, cerca de escuelas y de fácil acceso. Mantenimiento muy bajo ($30/mes). Garaje techado y parking de visitas.",
+    facts:["Piso 2 de 5","Garaje techado","Cerca de escuelas","Mantenimiento bajo"],
+    photos:["https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/93/22/70/32932270_c12f99d762a1b1cf2b9459c236565948-f64e9e9","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/93/22/70/32932270_c12f99d762a1b1cf2b9459c236565948-aa4d501","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/93/22/70/32932270_c12f99d762a1b1cf2b9459c236565948-346eaef","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/93/22/70/32932270_c12f99d762a1b1cf2b9459c236565948-d14ccd3","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/93/22/70/32932270_c12f99d762a1b1cf2b9459c236565948-4e3870a","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/93/22/70/32932270_c12f99d762a1b1cf2b9459c236565948-0d91342","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/93/22/70/32932270_c12f99d762a1b1cf2b9459c236565948-b7bd328","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/93/22/70/32932270_c12f99d762a1b1cf2b9459c236565948-acea24d","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/93/22/70/32932270_c12f99d762a1b1cf2b9459c236565948-4765269"],
+    listingUrl:"https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/se-vende-apartamento-parque-lefevre-rm/32932270",
+    lastVerified:"2026-10-01"
+  },
+  {
+    id:"inversionistas-san-cristobal",
+    building:"Apartamento reformado y amoblado — Conj. San Cristóbal",
+    area:"Parque Lefevre",
+    price:95000, beds:2, baths:1, parking:1, size_m2:69,
+    maintenance:25,
+    description:"Apartamento reformado y amoblado de 2 recámaras en Parque Lefevre, piso 1 con balcón, actualmente generando renta (8.84% ROI anual). Lavandería interna y aire acondicionado. Buena opción de inversión o uso propio.",
+    facts:["Reformado y amoblado","Balcón","A/C","Oportunidad de inversión"],
+    photos:["https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/33/00/44/67/33004467_b6fa36","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/33/00/44/67/33004467_a08ac3","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/33/00/44/67/33004467_2a687c","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/33/00/44/67/33004467_3d789a","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/33/00/44/67/33004467_c00115","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/33/00/44/67/33004467_3b9866","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/33/00/44/67/33004467_d010ed","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/33/00/44/67/33004467_677f81","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/33/00/44/67/33004467_fd8a25","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/33/00/44/67/33004467_d0cff7","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/33/00/44/67/33004467_dc8fb0","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/33/00/44/67/33004467_0a3448"],
+    listingUrl:"https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/atencion-inversionistas-apto-reformado-y-amoblado-a-a/33004467",
+    lastVerified:"2026-10-02"
+  },
+  {
+    id:"ph-centennial",
+    building:"PH Centennial",
+    area:"San Francisco / Vía Porras",
+    price:94000, beds:2, baths:1, parking:1, size_m2:63,
+    maintenance:94.04,
+    description:"Apartamento de 2 recámaras en PH Centennial, Vía Porras (Avenida Cincuentenario), edificio de 16 niveles del 2013. Cerca de escuelas y buen acceso vial. Precio recientemente reducido.",
+    facts:["Edificio 2013, 16 niveles","1+ elevadores","Lavandería interna","Precio reducido"],
+    photos:["https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/15/93/57/31159357_a2c590","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/15/93/57/31159357_b9305c","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/15/93/57/31159357_b26a14","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/15/93/57/31159357_98fda2","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/15/93/57/31159357_94f076","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/15/93/57/31159357_1308fb","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/15/93/57/31159357_5e49b2","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/15/93/57/31159357_1d72b1","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/15/93/57/31159357_93811d","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/15/93/57/31159357_7bd225","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/15/93/57/31159357_6be70a","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/15/93/57/31159357_19a75d"],
+    listingUrl:"https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/venta-de-apartamento-en-parque-lefevre-ph-centennial/31159357",
+    lastVerified:"2026-09-30"
+  },
+  {
+    id:"torres-via-espana",
+    building:"Torres de Vía España",
+    area:"Río Abajo / Vía España",
+    price:87000, beds:2, baths:1, parking:1, size_m2:69,
+    maintenance:102,
+    description:"Apartamento de 2 recámaras en Torres de Vía España, Río Abajo, piso medio. Ubicación céntrica cerca de comercios, supermercados, transporte público, bancos y restaurantes. Distribución práctica para vivienda propia o inversión.",
+    facts:["Piso medio","Clósets","Zona de lavandería","Ubicación céntrica"],
+    photos:["https://image.wasi.co/eyJidWNrZXQiOiJzdGF0aWN3Iiwia2V5IjoiaW5tdWVibGVzXC9ncjMwMTMyMTIwMjYwOTEwMDg1NDUxLmpwZWciLCJlZGl0cyI6eyJyb3RhdGUiOjAsInJlc2l6ZSI6eyJ3aWR0aCI6OTc5LCJoZWlnaHQiOjc0MywiZml0IjoiY29udGFpbiIsImJhY2tncm91bmQiOnsiciI6MjU1LCJnIjoyNTUsImIiOjI1NSwiYWxwaGEiOjF9fX19","https://image.wasi.co/eyJidWNrZXQiOiJzdGF0aWN3Iiwia2V5IjoiaW5tdWVibGVzXC9ncjMwMTMyMjIwMjYwOTEwMDg1NDUzLmpwZWciLCJlZGl0cyI6eyJyb3RhdGUiOjAsInJlc2l6ZSI6eyJ3aWR0aCI6OTc5LCJoZWlnaHQiOjc0MywiZml0IjoiY29udGFpbiIsImJhY2tncm91bmQiOnsiciI6MjU1LCJnIjoyNTUsImIiOjI1NSwiYWxwaGEiOjF9fX19","https://image.wasi.co/eyJidWNrZXQiOiJzdGF0aWN3Iiwia2V5IjoiaW5tdWVibGVzXC9ncjMwMTMyMzIwMjYwOTEwMDg1NDU0LmpwZWciLCJlZGl0cyI6eyJyb3RhdGUiOjAsInJlc2l6ZSI6eyJ3aWR0aCI6OTc5LCJoZWlnaHQiOjc0MywiZml0IjoiY29udGFpbiIsImJhY2tncm91bmQiOnsiciI6MjU1LCJnIjoyNTUsImIiOjI1NSwiYWxwaGEiOjF9fX19","https://image.wasi.co/eyJidWNrZXQiOiJzdGF0aWN3Iiwia2V5IjoiaW5tdWVibGVzXC9ncjMwMTMyNDIwMjYwOTEwMDg1NDU0LmpwZWciLCJlZGl0cyI6eyJyb3RhdGUiOjAsInJlc2l6ZSI6eyJ3aWR0aCI6OTc5LCJoZWlnaHQiOjc0MywiZml0IjoiY29udGFpbiIsImJhY2tncm91bmQiOnsiciI6MjU1LCJnIjoyNTUsImIiOjI1NSwiYWxwaGEiOjF9fX19","https://image.wasi.co/eyJidWNrZXQiOiJzdGF0aWN3Iiwia2V5IjoiaW5tdWVibGVzXC9ncjMwMTMyNTIwMjYwOTEwMDg1NDU1LmpwZWciLCJlZGl0cyI6eyJyb3RhdGUiOjAsInJlc2l6ZSI6eyJ3aWR0aCI6OTc5LCJoZWlnaHQiOjc0MywiZml0IjoiY29udGFpbiIsImJhY2tncm91bmQiOnsiciI6MjU1LCJnIjoyNTUsImIiOjI1NSwiYWxwaGEiOjF9fX19","https://image.wasi.co/eyJidWNrZXQiOiJzdGF0aWN3Iiwia2V5IjoiaW5tdWVibGVzXC9ncjMwMTMyNjIwMjYwOTEwMDg1NDU2LmpwZWciLCJlZGl0cyI6eyJyb3RhdGUiOjAsInJlc2l6ZSI6eyJ3aWR0aCI6OTc5LCJoZWlnaHQiOjc0MywiZml0IjoiY29udGFpbiIsImJhY2tncm91bmQiOnsiciI6MjU1LCJnIjoyNTUsImIiOjI1NSwiYWxwaGEiOjF9fX19","https://image.wasi.co/eyJidWNrZXQiOiJzdGF0aWN3Iiwia2V5IjoiaW5tdWVibGVzXC9ncjMwMTMyNzIwMjYwOTEwMDg1NDU3LmpwZWciLCJlZGl0cyI6eyJyb3RhdGUiOjAsInJlc2l6ZSI6eyJ3aWR0aCI6OTc5LCJoZWlnaHQiOjc0MywiZml0IjoiY29udGFpbiIsImJhY2tncm91bmQiOnsiciI6MjU1LCJnIjoyNTUsImIiOjI1NSwiYWxwaGEiOjF9fX19","https://image.wasi.co/eyJidWNrZXQiOiJzdGF0aWN3Iiwia2V5IjoiaW5tdWVibGVzXC9ncjMwMTMyODIwMjYwOTEwMDg1NDU4LmpwZWciLCJlZGl0cyI6eyJyb3RhdGUiOjAsInJlc2l6ZSI6eyJ3aWR0aCI6OTc5LCJoZWlnaHQiOjc0MywiZml0IjoiY29udGFpbiIsImJhY2tncm91bmQiOnsiciI6MjU1LCJnIjoyNTUsImIiOjI1NSwiYWxwaGEiOjF9fX19","https://image.wasi.co/eyJidWNrZXQiOiJzdGF0aWN3Iiwia2V5IjoiaW5tdWVibGVzXC9ncjMwMTMyOTIwMjYwOTEwMDg1NDU4LmpwZWciLCJlZGl0cyI6eyJyb3RhdGUiOjAsInJlc2l6ZSI6eyJ3aWR0aCI6OTc5LCJoZWlnaHQiOjc0MywiZml0IjoiY29udGFpbiIsImJhY2tncm91bmQiOnsiciI6MjU1LCJnIjoyNTUsImIiOjI1NSwiYWxwaGEiOjF9fX19","https://image.wasi.co/eyJidWNrZXQiOiJzdGF0aWN3Iiwia2V5IjoiaW5tdWVibGVzXC9ncjMwMTMyMTAyMDI2MDkxMDA4NTQ1OS5qcGVnIiwiZWRpdHMiOnsicm90YXRlIjowLCJyZXNpemUiOnsid2lkdGgiOjk3OSwiaGVpZ2h0Ijo3NDMsImZpdCI6ImNvbnRhaW4iLCJiYWNrZ3JvdW5kIjp7InIiOjI1NSwiZyI6MjU1LCJiIjoyNTUsImFscGhhIjoxfX19fQ==","https://image.wasi.co/eyJidWNrZXQiOiJzdGF0aWN3Iiwia2V5IjoiaW5tdWVibGVzXC9ncjMwMTMyMTEyMDI2MDkxMDA4NTUwMC5qcGVnIiwiZWRpdHMiOnsicm90YXRlIjowLCJyZXNpemUiOnsid2lkdGgiOjk3OSwiaGVpZ2h0Ijo3NDMsImZpdCI6ImNvbnRhaW4iLCJiYWNrZ3JvdW5kIjp7InIiOjI1NSwiZyI6MjU1LCJiIjoyNTUsImFscGhhIjoxfX19fQ==","https://image.wasi.co/eyJidWNrZXQiOiJzdGF0aWN3Iiwia2V5IjoiaW5tdWVibGVzXC9ncjMwMTMyMTIyMDI2MDkxMDA4NTUwMS5qcGVnIiwiZWRpdHMiOnsicm90YXRlIjowLCJyZXNpemUiOnsid2lkdGgiOjk3OSwiaGVpZ2h0Ijo3NDMsImZpdCI6ImNvbnRhaW4iLCJiYWNrZ3JvdW5kIjp7InIiOjI1NSwiZyI6MjU1LCJiIjoyNTUsImFscGhhIjoxfX19fQ=="],
+    listingUrl:null,
+    lastVerified:"2026-10-02"
+  },
+  {
+    id:"el-cangrejo-via-argentina",
+    building:"Apartamento en El Cangrejo, Vía Argentina",
+    area:"Bella Vista / El Cangrejo",
+    price:110000, beds:1, baths:1, parking:1, size_m2:64,
+    maintenance:96,
+    description:"Apartamento de 1 recámara con A/C en El Cangrejo, Vía Argentina. 1 baño completo más baño de visita, cocina amplia con estufa empotrada, sala-comedor súper iluminada. Zona segura y caminable, cerca de universidades, cafés y restaurantes.",
+    facts:["1 baño + baño de visita","Elevador","Zona segura y caminable","Cerca de universidades"],
+    photos:["https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/27/00/35/32270035_ff77e7faf94bb69febaa1695c4671650-4805092","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/27/00/35/32270035_ff77e7faf94bb69febaa1695c4671650-02635e4","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/27/00/35/32270035_ff77e7faf94bb69febaa1695c4671650-83e6a44","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/27/00/35/32270035_ff77e7faf94bb69febaa1695c4671650-525aad5","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/27/00/35/32270035_ff77e7faf94bb69febaa1695c4671650-e460513","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/27/00/35/32270035_ff77e7faf94bb69febaa1695c4671650-daa7ec9","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/27/00/35/32270035_ff77e7faf94bb69febaa1695c4671650-c5f432c","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/27/00/35/32270035_ff77e7faf94bb69febaa1695c4671650-b22ba3a","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/27/00/35/32270035_ff77e7faf94bb69febaa1695c4671650-ddfac59","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/27/00/35/32270035_ff77e7faf94bb69febaa1695c4671650-b1a988c","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/27/00/35/32270035_ff77e7faf94bb69febaa1695c4671650-2fc20b0","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/27/00/35/32270035_ff77e7faf94bb69febaa1695c4671650-996b577","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/27/00/35/32270035_ff77e7faf94bb69febaa1695c4671650-015e61e","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/27/00/35/32270035_ff77e7faf94bb69febaa1695c4671650-43a262f","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/27/00/35/32270035_ff77e7faf94bb69febaa1695c4671650-9157479","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/27/00/35/32270035_ff77e7faf94bb69febaa1695c4671650-8fda177"],
+    listingUrl:"https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/el-cangrejo-apartamento-en-venta/32270035",
+    lastVerified:"2026-10-02"
+  },
+  {
+    id:"ph-central-park-transistmica",
+    building:"PH Central Park",
+    area:"Vía Transístmica",
+    price:115000, beds:2, baths:2, parking:1, size_m2:85,
+    maintenance:118,
+    description:"Apartamento de 2 recámaras y 2 baños en PH Central Park, Transístmica, cerca del Metro 12 de Octubre, supermercados, comercios y colegios. Complejo con amplias áreas verdes y espacios recreativos. Incluye cuarto de servicio.",
+    facts:["Cerca del Metro","Cuarto de servicio","Áreas verdes","Año 2011"],
+    photos:["https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/83/57/76/32835776_d1f449","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/83/57/76/32835776_aed563","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/83/57/76/32835776_02137f","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/83/57/76/32835776_47fe8b","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/83/57/76/32835776_2b5c77","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/83/57/76/32835776_16ab31","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/83/57/76/32835776_5b0a93","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/83/57/76/32835776_f5f1f9","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/83/57/76/32835776_d5cf83","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/83/57/76/32835776_451531"],
+    listingUrl:"https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/apartamento-en-venta-en-transistmica-de-2-recamaras-ph-central-park/32835776",
+    lastVerified:"2026-10-02"
+  },
+  {
+    id:"ph-alsacia-towers",
+    building:"PH Alsacia Towers",
+    area:"Betania / Tumba Muerto",
+    price:110000, beds:2, baths:2, parking:1, size_m2:65.8,
+    maintenance:125.02,
+    description:"Apartamento de 2 recámaras y 2 baños en PH Alsacia Towers, Tumba Muerto, con piscina, gimnasio, área de juegos para niños y seguridad 24 horas. Precio reducido, por debajo del valor de mercado.",
+    facts:["Piscina y gimnasio","Área de juegos","Seguridad 24h","Precio reducido -3%"],
+    photos:["https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/33/85/45/31338545_447551","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/33/85/45/31338545_f4c5ff","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/33/85/45/31338545_70f291","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/33/85/45/31338545_c13818","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/33/85/45/31338545_a9fbb4","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/33/85/45/31338545_997a17","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/33/85/45/31338545_d95ff8","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/33/85/45/31338545_3edc5a","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/33/85/45/31338545_da44c6","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/33/85/45/31338545_1dc170","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/33/85/45/31338545_a4db74","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/31/33/85/45/31338545_96de08"],
+    listingUrl:"https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/venta-de-apartamento-en-ph-alsacia-towers/31338545",
+    lastVerified:"2026-10-02"
+  },
+  {
+    id:"ph-sunflower-carrasquilla",
+    building:"PH Sunflower, Carrasquilla",
+    area:"San Francisco / Carrasquilla",
+    price:108000, beds:2, baths:2, parking:1, size_m2:80,
+    maintenance:120,
+    description:"Apartamento de 2 recámaras y 2 baños en PH Sunflower, Carrasquilla, piso 6 con balcón. Incluye den, sala-comedor y cocina abierta, lavandería interna y 2 elevadores. A pasos de Vía España, clínicas y de la estación del Metro.",
+    facts:["Piso 6 con balcón","Den adicional","2 elevadores","Cerca del Metro y clínicas"],
+    photos:["https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/71/10/66/32711066_47d64d354a725e4e10c10716010f6507-ac35510","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/71/10/66/32711066_47d64d354a725e4e10c10716010f6507-7541666","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/71/10/66/32711066_47d64d354a725e4e10c10716010f6507-bb7be31","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/71/10/66/32711066_47d64d354a725e4e10c10716010f6507-dbf16e8","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/71/10/66/32711066_47d64d354a725e4e10c10716010f6507-d33a1a5","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/71/10/66/32711066_47d64d354a725e4e10c10716010f6507-a90c815","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/71/10/66/32711066_47d64d354a725e4e10c10716010f6507-80a5517","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/71/10/66/32711066_47d64d354a725e4e10c10716010f6507-8859fb0","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/71/10/66/32711066_47d64d354a725e4e10c10716010f6507-613eff3","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/71/10/66/32711066_47d64d354a725e4e10c10716010f6507-d45348f","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/71/10/66/32711066_47d64d354a725e4e10c10716010f6507-057b972","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/71/10/66/32711066_47d64d354a725e4e10c10716010f6507-6ce6a82","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/71/10/66/32711066_47d64d354a725e4e10c10716010f6507-9814441"],
+    listingUrl:"https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/se-vende-ganga-apartamento-ph-sunflower-carrasquilla-2-habitaciones/32711066",
+    lastVerified:"2026-09-30"
+  },
+  {
+    id:"parque-lefevre-26jack7652",
+    building:"Apartamento en Parque Lefevre",
+    area:"Parque Lefevre",
+    price:95000, beds:2, baths:1, parking:1, size_m2:63,
+    maintenance:1,
+    description:"Apartamento de 2 recámaras en Parque Lefevre, en edificio de baja densidad con ascensor, parking bajo techo y balcón. Precio reducido (-3%). Incluye aire acondicionado, nevera, lavaplatos y lavadora.",
+    facts:["Edificio de baja densidad","Balcón","Incluye electrodomésticos","Mantenimiento casi nulo ($1/mes)"],
+    photos:["https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/36/43/40/32364340_25f0a49f98662e9277f2bdfa0ef6ff6c-8903f29","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/36/43/40/32364340_25f0a49f98662e9277f2bdfa0ef6ff6c-f61b07c","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/36/43/40/32364340_25f0a49f98662e9277f2bdfa0ef6ff6c-482fa82","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/36/43/40/32364340_25f0a49f98662e9277f2bdfa0ef6ff6c-f1dcd8f","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/36/43/40/32364340_25f0a49f98662e9277f2bdfa0ef6ff6c-ccde0f8","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/36/43/40/32364340_25f0a49f98662e9277f2bdfa0ef6ff6c-cf200e0","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/36/43/40/32364340_25f0a49f98662e9277f2bdfa0ef6ff6c-d967044","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/36/43/40/32364340_25f0a49f98662e9277f2bdfa0ef6ff6c-b6ca5b1","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/36/43/40/32364340_25f0a49f98662e9277f2bdfa0ef6ff6c-f1e4840","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/36/43/40/32364340_25f0a49f98662e9277f2bdfa0ef6ff6c-c5b3aed","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/36/43/40/32364340_25f0a49f98662e9277f2bdfa0ef6ff6c-790fabb","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/36/43/40/32364340_25f0a49f98662e9277f2bdfa0ef6ff6c-d7f2d1b","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/36/43/40/32364340_25f0a49f98662e9277f2bdfa0ef6ff6c-13d6613","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/36/43/40/32364340_25f0a49f98662e9277f2bdfa0ef6ff6c-6d54469","https://photos.encuentra24.com/t_or_fh_m/f_auto/v1/pa/32/36/43/40/32364340_25f0a49f98662e9277f2bdfa0ef6ff6c-4945732"],
+    listingUrl:"https://www.encuentra24.com/panama-es/bienes-raices-venta-de-propiedades-apartamentos/apartamento-en-venta-en-parque-lefevre-26jack7652/32364340",
+    lastVerified:"2026-10-01"
+  }
+];
+
+function fmtMoney(n){ return "$"+n.toLocaleString("en-US"); }
+
+function cardHtml(p){
+  const ppm = Math.round(p.price / p.size_m2);
+  return `
+  <div class="card">
+    <div class="thumb" style="background-image:url('${p.photos[0]}')" onclick="openGallery('${p.id}')">
+      <span class="source-tag">Portal inmobiliario</span>
+      ${p.photos.length > 1 ? `<button class="photos-btn" onclick="event.stopPropagation();openGallery('${p.id}')" title="Ver todas las fotos">\u{1F4F7} Ver todas las fotos (${p.photos.length})</button>` : ""}
+    </div>
+    <div class="card-body">
+      <h3>${p.building}</h3>
+      <div class="area">${p.area}</div>
+      <div class="price">${fmtMoney(p.price)}<span class="ppm">$${ppm.toLocaleString("en-US")}/m\u00b2</span></div>
+      <div class="facts">
+        <span><b>${p.beds}</b> hab</span>
+        <span><b>${p.baths}</b> ba\u00f1os</span>
+        <span><b>${p.parking ?? 'Consultar'}</b> parqueos</span>
+        <span><b>${p.size_m2}</b> m\u00b2</span>
+      </div>
+      <p class="desc">${p.description}</p>
+      ${p.facts2 && p.facts2.length ? "" : ""}
+      <div class="amenities">
+        <b>Destacados</b>
+        <ul>${p.facts.map(c=>`<li>${c}</li>`).join("")}</ul>
+      </div>
+      ${p.maintenance ? `<div class="maint">Mantenimiento: $${p.maintenance}/mes</div>` : ""}
+      <div class="card-foot">
+        <span class="ref-badge">Ref: ${p.id}</span>
+        <span class="updated">verificado ${p.lastVerified}</span>
+      </div>
+    </div>
+  </div>`;
 }
 
-document.getElementById("f-area").innerHTML += '<option value="Alquiler">Alquiler</option><option value="Compra">Compra</option>';
-
-function applyFilters(){
-  const search = document.getElementById("f-search").value.trim().toLowerCase();
-  const area = document.getElementById("f-area").value;
-  const verdict = document.getElementById("f-verdict").value;
-  const blocks = document.querySelectorAll(".zone-block");
-  let totalShown = 0;
-  blocks.forEach(block=>{
-    const zone = block.dataset.zone;
-    let shownInBlock = 0;
-    if(area && area !== zone){ block.hidden = true; return; }
-    block.hidden = false;
-    block.querySelectorAll(".card").forEach(card=>{
-      const text = card.textContent.toLowerCase();
-      const vtag = card.querySelector(".verdict-tag");
-      const vtext = vtag ? vtag.textContent.trim() : "";
-      let show = true;
-      if(search && !text.includes(search)) show = false;
-      if(verdict && vtext !== verdict) show = false;
-      card.style.display = show ? "" : "none";
-      if(show) shownInBlock++;
-    });
-    block.querySelector(".meta").textContent = shownInBlock + (shownInBlock===1?" propiedad":" propiedades");
-    totalShown += shownInBlock;
-  });
-  document.getElementById("empty").hidden = totalShown > 0;
+function render(){
+  const sorted = [...PROPERTIES].sort((a,b)=>a.price-b.price);
+  document.getElementById("grid").innerHTML = sorted.map(cardHtml).join("");
+  document.getElementById("count-meta").textContent = PROPERTIES.length + " propiedades";
+  document.getElementById("stats").innerHTML = `
+    <div class="stat"><div class="n">${PROPERTIES.length}</div><div class="l">PROPIEDADES</div></div>
+  `;
 }
 
-document.querySelectorAll("#f-search,#f-area,#f-verdict,#f-sort").forEach(el=>{
-  el.addEventListener(el.tagName==="INPUT" ? "input" : "change", applyFilters);
+let galleryPhotos = [];
+let galleryIndex = 0;
+function openGallery(id){
+  const p = PROPERTIES.find(x=>x.id===id);
+  if(!p || !p.photos || !p.photos.length) return;
+  galleryPhotos = p.photos;
+  galleryIndex = 0;
+  document.getElementById("lightbox-title").textContent = p.building;
+  showPhoto();
+  document.getElementById("lightbox").hidden = false;
+  document.body.style.overflow = "hidden";
+}
+function closeGallery(){
+  document.getElementById("lightbox").hidden = true;
+  document.body.style.overflow = "";
+}
+function showPhoto(){
+  document.getElementById("lightbox-img").src = galleryPhotos[galleryIndex];
+  document.getElementById("lightbox-counter").textContent = (galleryIndex+1)+" / "+galleryPhotos.length;
+}
+function nextPhoto(){ galleryIndex = (galleryIndex+1) % galleryPhotos.length; showPhoto(); }
+function prevPhoto(){ galleryIndex = (galleryIndex-1+galleryPhotos.length) % galleryPhotos.length; showPhoto(); }
+document.addEventListener("keydown", e=>{
+  const lb = document.getElementById("lightbox");
+  if(lb && !lb.hidden){
+    if(e.key==="Escape") closeGallery();
+    if(e.key==="ArrowRight") nextPhoto();
+    if(e.key==="ArrowLeft") prevPhoto();
+  }
 });
-document.getElementById("clear").addEventListener("click", ()=>{
-  document.getElementById("f-search").value="";
-  document.getElementById("f-area").value="";
-  document.getElementById("f-verdict").value="";
-  applyFilters();
+document.addEventListener("click", e=>{
+  if(e.target && e.target.id === "lightbox") closeGallery();
 });
 
-document.getElementById("stats").innerHTML = `
-  <div class="stat"><div class="n">32</div><div class="l">PROPIEDADES</div></div>
-  <div class="stat"><div class="n">16</div><div class="l">ALQUILER</div></div>
-  <div class="stat"><div class="n">16</div><div class="l">COMPRA</div></div>
-`;
-
-applyFilters();
+render();
 </script>
+
+<div class="lightbox" id="lightbox" hidden>
+  <div class="lightbox-inner">
+    <div class="lightbox-imgwrap">
+      <button class="lightbox-close" onclick="closeGallery()" title="Cerrar" aria-label="Cerrar">\u2715</button>
+      <img id="lightbox-img" src="" alt="Foto de la propiedad">
+    </div>
+    <div class="lightbox-navrow">
+      <button class="lightbox-nav" onclick="prevPhoto()" title="Anterior" aria-label="Foto anterior">\u2039</button>
+      <div class="lightbox-meta"><b id="lightbox-title"></b><br><span id="lightbox-counter"></span></div>
+      <button class="lightbox-nav" onclick="nextPhoto()" title="Siguiente" aria-label="Foto siguiente">\u203a</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>
